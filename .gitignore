@@ -1,0 +1,14 @@
+# Configuração local com senha do banco (nunca vai para o GitHub)
+config.php
+
+# Arquivos do sistema operacional e editores
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# Logs e backups do banco
+*.log
+*.sql.bak
+backup/
