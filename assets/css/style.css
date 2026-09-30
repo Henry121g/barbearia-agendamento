@@ -1,0 +1,107 @@
+:root {
+    --fundo: #f6f3ee;
+    --cartao: #ffffff;
+    --texto: #1f1b16;
+    --texto-suave: #6b6259;
+    --borda: #e2dbd1;
+    --destaque: #b5651d;
+    --destaque-escuro: #8f4e14;
+    --sucesso: #2f7d4a;
+    --erro: #b3261e;
+    --raio: 10px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    line-height: 1.5;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main { flex: 1; padding-top: 32px; padding-bottom: 48px; }
+
+.container { width: 100%; max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+
+h1 { font-size: 1.8rem; margin: 0 0 8px; }
+.sub { color: var(--texto-suave); margin-top: 0; }
+a { color: var(--destaque-escuro); }
+
+/* Topo */
+.topo { background: var(--texto); color: #fff; }
+.topo__conteudo { display: flex; justify-content: space-between; align-items: center; min-height: 60px; gap: 16px; flex-wrap: wrap; }
+.logo { color: #fff; text-decoration: none; font-weight: 700; font-size: 1.1rem; }
+.topo nav { display: flex; gap: 16px; }
+.topo nav a { color: #e9dccb; text-decoration: none; }
+.topo nav a:hover { color: #fff; }
+
+.rodape { color: var(--texto-suave); font-size: .9rem; padding: 24px 0; border-top: 1px solid var(--borda); }
+
+/* Layout da página inicial */
+.grade { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+@media (max-width: 760px) { .grade { grid-template-columns: 1fr; } }
+
+.servicos { list-style: none; padding: 0; margin: 24px 0 0; }
+.servicos li { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px dashed var(--borda); }
+.servicos span { color: var(--texto-suave); white-space: nowrap; }
+
+/* Formulários */
+.cartao { background: var(--cartao); border: 1px solid var(--borda); border-radius: var(--raio); padding: 24px; display: grid; gap: 14px; }
+.cartao--estreito { max-width: 380px; margin: 0 auto; }
+
+label { display: grid; gap: 4px; font-weight: 600; font-size: .92rem; }
+
+input, select {
+    font: inherit;
+    font-weight: 400;
+    padding: 10px 12px;
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    background: #fff;
+    width: 100%;
+}
+input:focus, select:focus { outline: 2px solid var(--destaque); outline-offset: 1px; }
+
+button {
+    font: inherit;
+    font-weight: 600;
+    background: var(--destaque);
+    color: #fff;
+    border: 0;
+    border-radius: 8px;
+    padding: 10px 16px;
+    cursor: pointer;
+}
+button:hover { background: var(--destaque-escuro); }
+.botao--perigo { background: var(--erro); }
+.botao--perigo:hover { background: #8c1d17; }
+
+.linha-form { grid-template-columns: 2fr 1fr 1fr auto; align-items: end; margin-bottom: 24px; }
+@media (max-width: 760px) { .linha-form { grid-template-columns: 1fr; } }
+
+/* Alertas */
+.alerta { padding: 12px 16px; border-radius: 8px; margin-bottom: 20px; }
+.alerta--sucesso { background: #e3f3e8; color: var(--sucesso); }
+.alerta--erro { background: #fbe4e2; color: var(--erro); }
+
+/* Painel */
+.barra { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; }
+.filtro { display: flex; gap: 8px; }
+.vazio { color: var(--texto-suave); padding: 32px 0; }
+
+.tabela-rolagem { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; background: var(--cartao); border-radius: var(--raio); overflow: hidden; }
+th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid var(--borda); white-space: nowrap; }
+th { background: #efe9e0; font-size: .85rem; text-transform: uppercase; letter-spacing: .03em; }
+.acoes form { display: flex; gap: 6px; }
+.acoes button { padding: 6px 10px; font-size: .85rem; }
+tr.status-cancelado td, tr.inativo td { color: var(--texto-suave); }
+
+.etiqueta { font-size: .8rem; padding: 2px 8px; border-radius: 999px; background: #efe9e0; }
+.etiqueta--concluido { background: #e3f3e8; color: var(--sucesso); }
+.etiqueta--cancelado { background: #fbe4e2; color: var(--erro); }
